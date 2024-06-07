@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/Users/shihan/D/IC/Individual_project/codes/ttt/build",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DHAVE_FREEIMAGE -DHAVE_FREETYPE -DHAVE_OPENGL_EXT -DHAVE_RAPIDJSON -DHAVE_TBB -DHAVE_TK -DNEKTAR_MEMORY_POOL_ENABLED -DNEKTAR_USE_SCOTCH -DNEKTAR_USE_THREAD_SAFETY -DOCC_CONVERT_SIGNALS -DTETGEN_HAS_DEINITIALIZE -DTIXML_USE_STL -D_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION -isystem /Users/shihan/D/IC/Individual_project/codes/nektar++/build/dist/include/nektar++ -isystem /Users/shihan/D/IC/Individual_project/codes/ttt/include/nektar++ -isystem /opt/homebrew/include -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -o CMakeFiles/test.dir/my.cpp.o -c /Users/shihan/D/IC/Individual_project/codes/ttt/my.cpp",
+  "file": "/Users/shihan/D/IC/Individual_project/codes/ttt/my.cpp",
+  "output": "CMakeFiles/test.dir/my.cpp.o"
+}
+]

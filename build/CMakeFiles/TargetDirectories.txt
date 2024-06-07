@@ -1,0 +1,3 @@
+/Users/shihan/D/IC/Individual_project/codes/ttt/build/CMakeFiles/test.dir
+/Users/shihan/D/IC/Individual_project/codes/ttt/build/CMakeFiles/edit_cache.dir
+/Users/shihan/D/IC/Individual_project/codes/ttt/build/CMakeFiles/rebuild_cache.dir
