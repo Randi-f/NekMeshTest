@@ -23,50 +23,57 @@ int main(int argc, char *argv[])
     Logger log;
 
     MeshSharedPtr mesh = std::shared_ptr<Mesh>(new Mesh());
-    mesh->m_metadata["NekMeshCommandLine"] = "naca.mcf naca.xml";
+    mesh->m_metadata["NekMeshCommandLine"] = "ADR_mesh.msh ADR_mesh.xml";
 
     vector<ModuleSharedPtr> modules;
     vector<string> modcmds;
 
 
     ModuleKey in_module;
+    // ModuleType t = eInputModule;
     in_module.first=eInputModule;
-    in_module.second="mcf";
+    in_module.second="msh";
     ModuleKey out_module;
-    in_module.first=eOutputModule;
-    in_module.second="xml";
+    // ModuleType t2 = eOutputModule;
+    out_module.first=eOutputModule;
+    out_module.second="xml";
 
     // Create module.
     ModuleSharedPtr mod = GetModuleFactory().CreateInstance(in_module, mesh);
     mod->SetLogger(log);
-    mod->RegisterConfig("infile", "naca.mcf");
+    mod->RegisterConfig("infile", "ADR_mesh.msh");
+    // Ensure configuration options have been set.
+    mod->SetDefaults();
     modules.push_back(mod);
     
 
-    // ModuleSharedPtr mod1 = GetModuleFactory().CreateInstance(out_module, mesh);
-    // mod1->SetLogger(log);
-    // modules.push_back(mod1);
-    // mod1->RegisterConfig("outfile", "naca.xml");
+    ModuleSharedPtr mod1 = GetModuleFactory().CreateInstance(out_module, mesh);
+    mod1->SetLogger(log);
+    modules.push_back(mod1);
+    mod1->RegisterConfig("outfile", "ADR_mesh.xml");
+    // Ensure configuration options have been set.
+    mod1->SetDefaults();
 
 
     // Run mesh process.
-    // for (int i = 0; i < modules.size(); ++i)
-    // {
-    //     Nektar::LibUtilities::Timer t;
-    //     t.Start();
-    //     try
-    //     {
-    //         modules[i]->Process();
-    //     }
-    //     catch (NekMeshError &e)
-    //     {
-    //         return 1;
-    //     }
-    //     t.Stop();
+    for (int i = 0; i < modules.size(); ++i)
+    {
+        Nektar::LibUtilities::Timer t;
+        t.Start();
+        try
+        {
+            cout << "try process for " << modules[i]->GetModuleName() << endl;
+            modules[i]->Process();
+        }
+        catch (NekMeshError &e)
+        {
+            return 1;
+        }
+        t.Stop();
 
-    //     log.SetPrefix(modules[i]->GetModuleName());
+        log.SetPrefix(modules[i]->GetModuleName());
 
-    // }
+    }
 
 
     return 0;
