@@ -110,8 +110,23 @@ int main(int argc, char *argv[])
 
     }
 
-    cout << mesh->m_edgeSet.begin() << endl;
+    // cout << mesh->m_edgeSet.begin()->GetNodeCount()<< endl;
+    // Check if the set is not empty
+    cout << mesh->GetNumElements() << endl;
+    if (!mesh->m_edgeSet.empty()) {
+        // Get the first element
+        for (const auto& edgeSharedPtr : mesh->m_edgeSet) {
+            // Dereference the shared pointer to call GetNodeCount()
+            std::cout << "Edge pair: id=  " << edgeSharedPtr->m_n1->m_id << "," << edgeSharedPtr->m_n1->m_x << ", " << edgeSharedPtr->m_n1->m_y << ", " << edgeSharedPtr->m_n1->m_z<< std::endl;
+            std::cout << "Edge pair: id=  " << edgeSharedPtr->m_n2->m_id << "," << edgeSharedPtr->m_n2->m_x << ", " << edgeSharedPtr->m_n2->m_y << ", " << edgeSharedPtr->m_n2->m_z<< std::endl;
+        }
+        // auto firstEdge = *mesh->m_edgeSet.begin(); // need to derenference
 
+        // // Dereference the shared pointer to call GetNodeCount()
+        // std::cout << "First edge node : " << firstEdge->m_n1->m_x << "," << firstEdge->m_n1->m_y << ", " << firstEdge->m_n1->m_z << std::endl;
+    } else {
+        std::cout << "EdgeSet is empty." << std::endl;
+    }
 
     return 0;
 }
