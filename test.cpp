@@ -284,6 +284,7 @@ int main(int argc, char *argv[])
         {
             module.first  = eProcessModule;
             module.second = tmp1[0];
+            cout << "process module parameter:" << tmp1[0] << endl;
         }
 
         // Create module.
@@ -340,6 +341,7 @@ int main(int argc, char *argv[])
     }
 
     log.SetPrefixLen(maxModName);
+    cout << maxModName << endl;
 
     // Run mesh process.
     for (int i = 0; i < modules.size(); ++i)
