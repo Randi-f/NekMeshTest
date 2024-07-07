@@ -72,23 +72,19 @@ void addProcessModule(Logger log, map<string, string>values){
     modp->SetDefaults();
 }
 
+
+
+
 int main(int argc, char *argv[])
 {
     // create a logger
     auto logOutput = std::make_shared<StreamOutput>(std::cout);
     Logger log(logOutput, INFO);
-    mesh->m_metadata["NekMeshCommandLine"] = "ADR_mesh.msh ADR_mesh.xml";
-    addInputModule(log,"ADR_mesh.msh");
-    // map<string, string>values;
-    // values["surf1"]="200";
-    // values["surf2"]="400";
-    // values["dir"]="x";
-    // addProcessModule(log, values);
-    addOutputFile(log,"");
 
-    
-
+    addInputModule(log,"t106a.geo");
+    // addOutputFile(log,"");
     log.SetPrefixLen(11);
+
     // Run mesh process.
     for (int i = 0; i < modules.size(); ++i)
     {

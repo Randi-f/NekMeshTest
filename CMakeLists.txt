@@ -39,7 +39,7 @@ MESSAGE(STATUS "Found Nektar++: version ${NEKTAR++_VERSION}")
 #message(STATUS "LibUtilities library: ${LIBUTILITIES_LIBRARY}")
 
 # 添加可执行文件
-add_executable(test my.cpp)
+add_executable(test cad.cpp)
 
 # 链接库文件
 target_link_libraries(test ${NEKTAR++_LIBRARIES} ${NEKTAR++_TP_LIBRARIES})
